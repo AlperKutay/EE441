@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1664471150 source:d:\completed\uni\activelectures\ee441\2022-23\lectureprojects\chapter1_date\date.cpp
+	"Date.hpp"
+
+1664471127 source:d:\completed\uni\activelectures\ee441\2022-23\lectureprojects\chapter1_date\main.cpp
+	"Date.hpp"
+
+1664509325 d:\completed\uni\activelectures\ee441\2022-23\lectureprojects\chapter1_date\date.hpp
+	<iostream>
+
+1666012037 source:c:\users\alper\desktop\ee\ee4-1\ee 441\chapter1_source_code\chapter1_date\date.cpp
+	"Date.hpp"
+
+1666012037 c:\users\alper\desktop\ee\ee4-1\ee 441\chapter1_source_code\chapter1_date\date.hpp
+	<iostream>
+
+1666012585 source:c:\users\alper\desktop\ee\ee4-1\ee 441\chapter1_source_code\chapter1_date\main.cpp
+	"Date.hpp"
+

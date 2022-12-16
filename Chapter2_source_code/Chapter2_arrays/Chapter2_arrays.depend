@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1664471150 source:d:\completed\uni\activelectures\ee441\2022-23\lectureprojects\chapter2_arrays\date.cpp
+	"Date.hpp"
+
+1664509918 d:\completed\uni\activelectures\ee441\2022-23\lectureprojects\chapter2_arrays\date.hpp
+	<iostream>
+
+1665154080 source:d:\completed\uni\activelectures\ee441\2022-23\lectureprojects\chapter2_arrays\main.cpp
+	"Date.hpp"
+	"Polygon.hpp"
+
+1664601949 source:d:\completed\uni\activelectures\ee441\2022-23\lectureprojects\chapter2_arrays\polygon.cpp
+
+1664602537 d:\completed\uni\activelectures\ee441\2022-23\lectureprojects\chapter2_arrays\polygon.hpp
+	<iostream>
+

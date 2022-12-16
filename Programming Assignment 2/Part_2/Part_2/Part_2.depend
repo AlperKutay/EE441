@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1670356095 source:c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 2\part_2\part_2\main.cpp
+	<bits/stdc++.h>
+	<cinttypes>
+	<iostream>
+

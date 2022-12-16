@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1670438580 source:c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 2\maze_with_wrapper\maze_with_wrapper\main.cpp
+	<fstream>
+	"stack_queues.hpp"
+	"LL_wrapper.hpp"
+
+1670435950 c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 2\maze_with_wrapper\maze_with_wrapper\stack_queues.hpp
+	<iostream>
+
+1670432792 c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 2\maze_with_wrapper\maze_with_wrapper\ll_wrapper.hpp
+	<bits/stdc++.h>
+	<cinttypes>
+	<iostream>
+

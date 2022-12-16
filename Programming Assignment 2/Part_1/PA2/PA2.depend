@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1669832258 source:c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 2\part_1\pa2\untitled1.cpp
+	<iostream>
+	<fstream>
+	<string.h>
+
+1670438335 source:c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 2\part_1\pa2\main.cpp
+	<fstream>
+	"stack_queues.hpp"
+	"LL_wrapper.hpp"
+
+1670438410 c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 2\part_1\pa2\stack_queues.hpp
+	<iostream>
+
+1670431876 c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 2\part_1\pa2\ll_wrapper.hpp
+	<bits/stdc++.h>
+	<cinttypes>
+	<iostream>
+

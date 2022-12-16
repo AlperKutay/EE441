@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1666827385 source:c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 1\part_1\part_1\array.cpp
+
+1666827105 c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 1\part_1\part_1\array.hpp
+	"iostream"
+
+1667641924 source:c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 1\part_1\part_1\main.cpp
+	"iostream"
+	<math.h>
+

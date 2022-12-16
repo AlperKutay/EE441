@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1667600541 source:c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 1\part_1\part_2\part_2\main.cpp
+	<iostream>
+
+1667642115 source:c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 1\part_1\part_2\part_2\source.cpp
+	"iostream"
+
+1667744774 source:c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 1\part_1\part_2\part_2\benchmark.cpp
+	<iostream>
+	<chrono>
+	"source.hpp"
+
+1667744890 c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 1\part_1\part_2\part_2\source.hpp
+	"iostream"
+

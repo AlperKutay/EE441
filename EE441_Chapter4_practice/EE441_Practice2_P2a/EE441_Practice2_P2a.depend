@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1604217136 source:d:\completed\uni\activelectures\ee441\preparation\ee441_practice2_p2\main.cpp
+	<iostream>
+	"queue.h"
+	"stack.h"
+
+1604152543 d:\completed\uni\activelectures\ee441\preparation\ee441_practice2_p2\queue.h
+	<iostream>
+	<stdlib.h>
+	"link.h"
+
+1604152692 d:\completed\uni\activelectures\ee441\preparation\ee441_practice2_p2\link.h
+	<iostream>
+	<stdlib.h>
+	"node.h"
+
+1583387508 d:\completed\uni\activelectures\ee441\preparation\ee441_practice2_p2\node.h
+
+1604153165 d:\completed\uni\activelectures\ee441\preparation\ee441_practice2_p2\stack.h
+	<iostream>
+	<stdlib.h>
+	"link.h"
+
+1604217136 source:d:\completed\uni\activelectures\ee441\preparation\ee441_practice2_p2a\main.cpp
+	<iostream>
+	"queue.h"
+	"stack.h"
+
+1604152543 d:\completed\uni\activelectures\ee441\preparation\ee441_practice2_p2a\queue.h
+	<iostream>
+	<stdlib.h>
+	"link.h"
+
+1604152692 d:\completed\uni\activelectures\ee441\preparation\ee441_practice2_p2a\link.h
+	<iostream>
+	<stdlib.h>
+	"node.h"
+
+1583387508 d:\completed\uni\activelectures\ee441\preparation\ee441_practice2_p2a\node.h
+
+1604153165 d:\completed\uni\activelectures\ee441\preparation\ee441_practice2_p2a\stack.h
+	<iostream>
+	<stdlib.h>
+	"link.h"
+
