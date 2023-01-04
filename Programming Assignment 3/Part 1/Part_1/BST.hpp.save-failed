@@ -1,0 +1,112 @@
+#include "Matrix.hpp"
+using namespace std;
+class BST_Node
+{
+    public :
+        BST_Node* left;
+        BST_Node* right; // Determinant of key matrix is value
+        Matrix key;
+        long value;
+        int lenght;
+
+
+
+};
+class BST
+{
+    BST_Node* root = new BST_Node;
+    int is_equal_Bst(BST_Node A, BST_Node B) const;
+    int is_equal_Matrix(Matrix A, Matrix B) const;
+    int is_smaller_Bst(BST_Node A, BST_Node B) const;
+    int is_smaller_Matrix(Matrix A, Matrix B) const;
+    int element(int row,int column);
+    long search(Matrix A);
+    void insert(Matrix A);
+    bool key_exists(Matrix A);
+    void create_left_right(BST_Node* node);
+};
+
+void BST::create_left_right(BST_Node* node)
+{
+    node->left = new BST_Node;
+    node->right = new BST_Node;
+}
+int BST::is_smaller_Matrix(Matrix A, Matrix B) const
+{
+    if(A.N < B.N)
+        return true;
+    else if(A.N == B.N)
+    {
+        for(int row=0;row<A.N;row++)
+        {
+            for(int column=0;column<A.N;column++)
+            {
+                if(A.get_func(row,column)==B.get_func(row,column))
+                    continue;
+                else if(A.get_func(row,column)>B.get_func(row,column))
+                    return false;
+                else if(A.get_func(row,column)<B.get_func(row,column))
+                    return true;
+            }
+        }
+    }
+    else
+        return false;
+
+}
+int BST::is_equal_Matrix(Matrix A, Matrix B)const
+{
+    if(A.N!=B.N)
+        return false;
+    for(int row=0;row<A.N;row++)
+    {
+        for(int column=0;column<A.N;column++)
+        {
+            if(A.get_func(row,column)!=B.get_func(row,column))
+                 return false;
+        }
+    }
+    return true;
+}
+long BST::search(Matrix A)
+{
+    if(key_exists(A))
+    {
+        return A.determinant(A);
+    }
+
+}
+void BST::insert(Matrix A)
+{
+    BST_Node temp;
+    temp.key = A;
+    temp.lenght = A.N;
+    temp.value= A.determinant(A);
+
+    root->key = key;
+    root->lenght = lenght;
+    root->value = value;
+    if(lenght==0)
+        {
+            key=A;
+            lenght=A.N;
+            value=A.determinant(A);
+            filled=true;
+            cout<<"girdi lenght 0"<<endl;
+        }
+        else
+        {
+            if(is_smaller_Matrix(temp.key,root->key))
+            {
+                create_left_right(left);
+                left=temp.right;
+                cout<<"Girdi right"<<endl;
+            }
+            else if(!is_equal_Matrix(temp.key,root->key))
+            {
+                right=temp.left;
+                cout<<"Girdi right"<<endl;
+            }
+        }
+}
+
