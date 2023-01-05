@@ -34,6 +34,7 @@
 		<Unit filename="BST.hpp" />
 		<Unit filename="Matrix.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="take_file.hpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

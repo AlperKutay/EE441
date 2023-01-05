@@ -5,40 +5,42 @@ class BST_Node
     public :
         BST_Node* left;
         BST_Node* right; // Determinant of key matrix is value
-        bool filled;
+        int filled;
         Matrix key;
         long value;
 };
+int inser_counter=0;
 class BST
 {
     public:
         BST_Node* root;
         BST(void);
-        int is_equal_Bst(BST_Node A, BST_Node B) const;
         int is_equal_Matrix(Matrix A, Matrix B) const;
-        int is_smaller_Bst(BST_Node A, BST_Node B) const;
         int is_smaller_Matrix(Matrix A, Matrix B) const;
         int element(int row,int column);
         long search(Matrix A);
-        void insert(Matrix A);
+        int insert(Matrix A,long detA);
         long key_exists(Matrix A);
         void create_left_right(BST_Node* node);
-        void print_nodes();
 };
 BST::BST(void)
 {
     root = new BST_Node;
     root->left = new BST_Node;
+    root->left->filled = 0;
     root->right = new BST_Node;
-    root->filled = false;
+    root->right->filled = 0;
+    root->filled = 0;
 
 }
 void BST::create_left_right(BST_Node* node)
 {
     node->left = new BST_Node;
-    node->left->filled = false;
+    node->left->filled = 0;
+    node->left->value=0;
     node->right = new BST_Node;
-    node->right->filled = false;
+    node->right->filled = 0;
+    node->right->value=0;
 }
 int BST::is_smaller_Matrix(Matrix A, Matrix B) const
 {
@@ -50,11 +52,11 @@ int BST::is_smaller_Matrix(Matrix A, Matrix B) const
         {
             for(int column=0;column<A.N;column++)
             {
-                if(A.get_func(row,column)==B.get_func(row,column))
+                if(A.get_element(row,column)==B.get_element(row,column))
                     continue;
-                else if(A.get_func(row,column)>B.get_func(row,column))
+                else if(A.get_element(row,column)>B.get_element(row,column))
                     return false;
-                else if(A.get_func(row,column)<B.get_func(row,column))
+                else if(A.get_element(row,column)<B.get_element(row,column))
                     return true;
             }
         }
@@ -72,8 +74,12 @@ int BST::is_equal_Matrix(Matrix A, Matrix B)const
     {
         for(int column=0;column<A.N;column++)
         {
-            if(A.get_func(row,column)!=B.get_func(row,column))
-                 return false;
+            if(A.get_element(row,column)!=B.get_element(row,column))
+            {
+
+                return false;
+            }
+
         }
     }
     return true;
@@ -85,10 +91,9 @@ long BST::key_exists(Matrix A)
 
     while(current_node->filled!=false)
     {
-        cout<<current_node->key.N<<endl;
+
         if(is_equal_Matrix(A,current_node->key))
         {
-
             return current_node->value;
         }
         else if(!is_smaller_Matrix(A,current_node->key))
@@ -102,46 +107,47 @@ long BST::key_exists(Matrix A)
             current_node=current_node->left;
         }
     }
+    //return false;
 }
 long BST::search(Matrix A)
 {
-    if(key_exists(A))
-    {
-        return A.determinant(A);
-    }
+    return key_exists(A);
 
 }
-void BST::insert(Matrix A)
+int BST::insert(Matrix A,long detA)
 {
     BST_Node *current_node= new BST_Node;
     current_node = root;
 
-    if(root->filled==false)
+    if(root->filled==0)
     {
         root->key=A;
-        root->value=A.determinant(A);
-        root->filled=true;
+        root->value=detA;
+        root->filled=1;
     }
     else
     {
-        while(current_node->filled!=false)
+        while(current_node->filled!=0)
         {
+
             if(is_equal_Matrix(A,current_node->key))
             {
-                current_node->value=A.determinant(A);
-            }
-            else if(!is_smaller_Matrix(A,current_node->key))
-            {
-                current_node=current_node->right;
+                return 0;
+
             }
             else if(is_smaller_Matrix(A,current_node->key))
             {
                 current_node=current_node->left;
             }
+            else if(!is_smaller_Matrix(A,current_node->key) )
+            {
+                current_node=current_node->right;
+            }
         }
         current_node->key=A;
-        current_node->value=A.determinant(A);
-        current_node->filled=true;
+        current_node->value=detA;
+        current_node->filled=1;
         create_left_right(current_node);
+        return 0;
     }
 }

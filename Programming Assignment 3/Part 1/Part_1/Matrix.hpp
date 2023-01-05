@@ -4,28 +4,56 @@ class Matrix
     public:
         long **data;
         int N;
-        Matrix(void);
+        Matrix();
         void print_matrix(void)const;
-        int get_func(int value1 , int value2)const;
-        void set_func(int value1 , int value2, int value3);
-        void input_N(int input);
-        void identity_matrix(void);
-        long determinant(Matrix mat);
+        int get_element(int value1 , int value2)const;
+        void set_element(int value1 , int value2, int value3);
+        void copy_constructer(Matrix Mat);
+        void init_matrix(int size);
+        void clear_matrix();
+        int get_size();
+        Matrix get_cofactor(int row,int column);
 
 
 };
-Matrix::Matrix(void)
+Matrix::Matrix()
 {
     N=0;
-    input_N(N);
+    init_matrix(N);
 }
-void Matrix::identity_matrix(void)
-{
+Matrix Matrix::get_cofactor(int row, int col) {
+  Matrix cofactor_matrix;
+  cofactor_matrix.init_matrix(N-1);
+  int row_offset = 0;
+  for (int i = 0; i < N; i++) {
+    if (i == row) {
+      row_offset = 1;
+      continue;
+    }
+    int col_offset = 0;
+    for (int j = 0; j < N; j++) {
+      if (j == col) {
+        col_offset = 1;
+        continue;
+      }
+      cofactor_matrix.set_element(i - row_offset, j - col_offset, data[i][j]);
+    }
+  }
+  return cofactor_matrix;
+}
 
-    int row,column;
-    for(row=0;row<N;row++)
+void Matrix::init_matrix(int size)
+{
+    N=size;
+    data = new long*[N];
+    for(int i=0;i<N;i++)
     {
-        for(column=0;column<N;column++)
+        data[i]=new long[N];
+    }
+    int row,column;
+    for(row=0;row<size;row++)
+    {
+        for(column=0;column<size;column++)
         {
             if(row==column)
                 data[row][column]=1;
@@ -34,17 +62,33 @@ void Matrix::identity_matrix(void)
         }
     }
 }
-void Matrix::input_N(int input)
+void Matrix::copy_constructer(Matrix Mat)
 {
-    N=input;
-    data = new long*[N];
-    for(int i=0;i<N;i++)
+    int row,column;
+    for(row=0;row<N;row++)
     {
-        data[i]=new long[N];
+        for(column=0;column<N;column++)
+        {
+                data[row][column]=Mat.data[row][column];
+        }
     }
-    identity_matrix();
 }
-int Matrix::get_func(int value1 , int value2)const
+int Matrix::get_size()
+{
+    return N;
+}
+void Matrix::clear_matrix()
+{
+    int row,column;
+    for(row=0;row<N;row++)
+    {
+        for(column=0;column<N;column++)
+        {
+                data[row][column]=0;
+        }
+    }
+}
+int Matrix::get_element(int value1 , int value2)const
 {
         if(value1<=N && value2<=N)
         {
@@ -53,7 +97,7 @@ int Matrix::get_func(int value1 , int value2)const
         else
             cout<<"Please enter valid values"<<endl;
 }
-void Matrix::set_func(int value1 , int value2, int value3)
+void Matrix::set_element(int value1 , int value2, int value3)
 {
     if(value1<=N && value2<=N)
     {
@@ -78,70 +122,5 @@ void Matrix::print_matrix(void)const
         cout<<endl;
     }
 }
-long Matrix::determinant(Matrix mat)
-{
-    int num1, num2, det = 1, index,
-                    total = 1; // Initialize result
 
-    // temporary array for storing row
-    int temp[N + 1];
 
-    // loop for traversing the diagonal elements
-    for (int i = 0; i < N; i++)
-    {
-        index = i; // initialize the index
-
-        // finding the index which has non zero value
-        while (index < N && mat.data[index][i] == 0)
-        {
-            index++;
-        }
-        if (index == N) // if there is non zero element
-        {
-            // the determinant of matrix as zero
-            continue;
-        }
-        if (index != i)
-        {
-            // loop for swapping the diagonal element row and
-            // index row
-            for (int j = 0; j < N; j++)
-            {
-                swap(mat.data[index][j], mat.data[i][j]);
-            }
-            // determinant sign changes when we shift rows
-            // go through determinant properties
-            det = det * pow(-1, index - i);
-        }
-
-        // storing the values of diagonal row elements
-        for (int j = 0; j < N; j++)
-        {
-            temp[j] = mat.data[i][j];
-        }
-        // traversing every row below the diagonal element
-        for (int j = i + 1; j < N; j++)
-        {
-            num1 = temp[i]; // value of diagonal element
-            num2 = mat.data[j][i]; // value of next row element
-
-            // traversing every column of row
-            // and multiplying to every row
-            for (int k = 0; k < N; k++)
-            {
-                // multiplying to make the diagonal
-                // element and next row element equal
-                mat.data[j][k]
-                    = (num1 * mat.data[j][k]) - (num2 * temp[k]);
-            }
-            total = total * num1; // Det(kA)=kDet(A);
-        }
-    }
-
-    // multiplying the diagonal elements to get determinant
-    for (int i = 0; i < N; i++)
-    {
-        det = det * mat.data[i][i];
-    }
-    return (det / total); // Det(kA)/k=Det(A);
-}
