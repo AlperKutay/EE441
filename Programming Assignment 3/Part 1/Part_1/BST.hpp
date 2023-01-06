@@ -19,7 +19,7 @@ class BST
         int is_smaller_Matrix(Matrix A, Matrix B) const;
         int element(int row,int column);
         long search(Matrix A);
-        int insert(Matrix A,long detA);
+        void insert(Matrix A,long detA);
         long key_exists(Matrix A);
         void create_left_right(BST_Node* node);
 };
@@ -92,16 +92,16 @@ long BST::key_exists(Matrix A)
     while(current_node->filled!=false)
     {
 
-        if(is_equal_Matrix(A,current_node->key))
+        if((A==current_node->key))
         {
             return current_node->value;
         }
-        else if(!is_smaller_Matrix(A,current_node->key))
+        else if(!(A<current_node->key))
         {
 
             current_node=current_node->right;
         }
-        else if(is_smaller_Matrix(A,current_node->key))
+        else if((A<current_node->key))
         {
 
             current_node=current_node->left;
@@ -114,7 +114,7 @@ long BST::search(Matrix A)
     return key_exists(A);
 
 }
-int BST::insert(Matrix A,long detA)
+void BST::insert(Matrix A,long detA)
 {
     BST_Node *current_node= new BST_Node;
     current_node = root;
@@ -130,16 +130,15 @@ int BST::insert(Matrix A,long detA)
         while(current_node->filled!=0)
         {
 
-            if(is_equal_Matrix(A,current_node->key))
+            if((A==current_node->key))
             {
-                return 0;
-
+                return ;
             }
-            else if(is_smaller_Matrix(A,current_node->key))
+            else if((A<current_node->key))
             {
                 current_node=current_node->left;
             }
-            else if(!is_smaller_Matrix(A,current_node->key) )
+            else if(!(A<current_node->key) )
             {
                 current_node=current_node->right;
             }
@@ -148,6 +147,5 @@ int BST::insert(Matrix A,long detA)
         current_node->value=detA;
         current_node->filled=1;
         create_left_right(current_node);
-        return 0;
     }
 }

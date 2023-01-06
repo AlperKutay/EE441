@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1672954693 source:c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 3\part 2\part_2\main.cpp
+	"iostream"
+	<math.h>
+	"BST.hpp"
+	"take_file.hpp"
+
+1672954819 c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 3\part 2\part_2\bst.hpp
+	"Matrix.hpp"
+
+1672945128 c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 3\part 2\part_2\matrix.hpp
+
+1672945194 c:\users\alper\desktop\ee\ee4-1\ee 441\programming assignment 3\part 2\part_2\take_file.hpp
+	<fstream>
+

@@ -191,8 +191,8 @@ double Matrix<N>::determinant(Matrix ARR,int n) const
 }
 int main()
 {
-    Matrix<3> Mat;
-    Matrix<3> Mat1;
+    Matrix<15> Mat;
+    Matrix<15> Mat1;
     /*cout<<"N=3 : "<<endl;
     Mat.print_matrix();
     cout<<"N=7 : "<<endl;
@@ -208,23 +208,23 @@ int main()
     Mat1.set_func(0,2,7);
     Mat1.print_matrix();
     //cout<<"Determinant is "<<Mat1.determinant(Mat1,3)<<endl;
-    Matrix<3>Mat2=Mat.add(Mat1);
+    Matrix<15>Mat2=Mat.add(Mat1);
     cout<<"MATRIX_0+MATRIX_1=MATRIX_2"<<endl;
     Mat2.print_matrix();
-    Matrix<3>Mat3=Mat2.multp(Mat1);
+    Matrix<15>Mat3=Mat2.multp(Mat1);
     cout<<"MATRIX_2*MATRIX_1=MATRIX_3"<<endl;
     Mat3.print_matrix();
-    Matrix<3>Mat4=Mat3.subs(Mat1);
+    Matrix<15>Mat4=Mat3.subs(Mat1);
     cout<<"MATRIX_3-MATRIX_1=MATRIX_4"<<endl;
     Mat4.print_matrix();
     /*cout<<"Matrix 2:"<<endl;
     Mat2.print_matrix();*/
     cout<<endl;
-    cout<<"Determinant of MATRIX_0 is  "<<Mat.determinant(Mat,3)<<endl;
-    cout<<"Determinant of MATRIX_1 is  "<<Mat1.determinant(Mat1,3)<<endl;
-    cout<<"Determinant of MATRIX_2 is  "<<Mat2.determinant(Mat2,3)<<endl;
-    cout<<"Determinant of MATRIX_3 is  "<<Mat3.determinant(Mat3,3)<<endl;
-    cout<<"Determinant of MATRIX_4 is  "<<Mat4.determinant(Mat4,3)<<endl;
+    cout<<"Determinant of MATRIX_0 is  "<<Mat.determinant(Mat,15)<<endl;
+    cout<<"Determinant of MATRIX_1 is  "<<Mat1.determinant(Mat1,15)<<endl;
+    cout<<"Determinant of MATRIX_2 is  "<<Mat2.determinant(Mat2,15)<<endl;
+    cout<<"Determinant of MATRIX_3 is  "<<Mat3.determinant(Mat3,15)<<endl;
+    cout<<"Determinant of MATRIX_4 is  "<<Mat4.determinant(Mat4,15)<<endl;
 
 
     return 0;

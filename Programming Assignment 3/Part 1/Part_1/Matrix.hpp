@@ -12,7 +12,9 @@ class Matrix
         void init_matrix(int size);
         void clear_matrix();
         int get_size();
+        bool operator==(Matrix &Mat);
         Matrix get_cofactor(int row,int column);
+        bool operator<(Matrix &Mat);
 
 
 };
@@ -22,24 +24,25 @@ Matrix::Matrix()
     init_matrix(N);
 }
 Matrix Matrix::get_cofactor(int row, int col) {
-  Matrix cofactor_matrix;
-  cofactor_matrix.init_matrix(N-1);
-  int row_offset = 0;
-  for (int i = 0; i < N; i++) {
-    if (i == row) {
-      row_offset = 1;
-      continue;
-    }
-    int col_offset = 0;
-    for (int j = 0; j < N; j++) {
-      if (j == col) {
-        col_offset = 1;
-        continue;
+
+      Matrix cofactor_matrix;
+      cofactor_matrix.init_matrix(N-1);
+      int row_offset = 0;
+      for (int i = 0; i < N; i++) {
+        if (i == row) {
+          row_offset = 1;
+          continue;
+        }
+        int col_offset = 0;
+        for (int j = 0; j < N; j++) {
+          if (j == col) {
+            col_offset = 1;
+            continue;
+          }
+          cofactor_matrix.set_element(i - row_offset, j - col_offset, data[i][j]);
+        }
       }
-      cofactor_matrix.set_element(i - row_offset, j - col_offset, data[i][j]);
-    }
-  }
-  return cofactor_matrix;
+      return cofactor_matrix;
 }
 
 void Matrix::init_matrix(int size)
@@ -122,5 +125,45 @@ void Matrix::print_matrix(void)const
         cout<<endl;
     }
 }
+bool Matrix::operator==(Matrix &Mat)
+{
+    if(N!=Mat.N)
+        return false;
+    for(int row=0;row<N;row++)
+    {
+        for(int column=0;column<N;column++)
+        {
+            if(get_element(row,column)!=Mat.get_element(row,column))
+            {
 
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
+bool Matrix::operator<(Matrix &Mat)
+{
+    if(N < Mat.N)
+        return true;
+    else if(N == Mat.N)
+    {
+
+        for(int row=0;row<Mat.N;row++)
+        {
+            for(int column=0;column<Mat.N;column++)
+            {
+                if(get_element(row,column)==Mat.get_element(row,column))
+                    continue;
+                else if(get_element(row,column)>Mat.get_element(row,column))
+                    return false;
+                else if(get_element(row,column)<Mat.get_element(row,column))
+                    return true;
+            }
+        }
+        return false;
+    }
+    else
+        return false;
+}

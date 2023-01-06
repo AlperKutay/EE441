@@ -1,0 +1,105 @@
+#include "Matrix.hpp"
+using namespace std;
+class HT_Item
+{
+    public :
+        Matrix key;
+        long value;
+};
+
+class HashTable
+{
+    public:
+        HT_Item *root[65536];
+        long hash(Matrix M);
+        HashTable(void);
+        long search(Matrix A);
+        void insert(Matrix A,long detA);
+        bool key_exists(Matrix A);
+
+};
+HashTable::HashTable(void)
+{
+    for(int i=0;i<65536;i++)
+    {
+        root[i]=NULL;
+    }
+
+}
+long HashTable::hash(Matrix M){
+
+    long hash_value = M.N;
+  for (int i = 0; i < M.N; i++) {
+    for (int j = 0; j < M.N; j++) {
+      hash_value = (hash_value * 61 + M.get_element(i,j))% 65536;
+    }
+  }
+  return hash_value ;
+}
+bool HashTable::key_exists(Matrix A)
+{
+    int hash_value=hash(A);
+    if(root[hash_value]==NULL)
+    {
+        return false;
+    }
+    if(root[hash_value]->key==A)
+    {
+        return true;
+    }
+    while(root[hash_value]!=NULL)
+    {
+        if(root[hash_value]->key == A)
+        {
+            return true;
+        }
+        else
+        {
+            hash_value++;
+        }
+    }
+    return false;
+}
+long HashTable::search(Matrix M)
+{
+    int hash_value=hash(M);
+    if(root[hash_value]==NULL)
+    {
+        return false;
+    }
+    if(root[hash_value]->key==M)
+    {
+        return root[hash_value]->value;
+    }
+    while(root[hash_value]!=NULL)
+    {
+        if(root[hash_value]->key == M)
+        {
+            return root[hash_value]->value;
+        }
+        else
+        {
+            hash_value++;
+        }
+    }
+    return false;
+}
+void HashTable::insert(Matrix A,long detA)
+{
+    int hash_value = hash(A);
+    if(root[hash_value]==NULL)
+    {
+        root[hash_value]->key=A;
+        root[hash_value]->value=detA;
+    }
+    if(root[hash_value]->==A)
+    {
+        while(root[hash_value]!=NULL)
+        {
+            hash_value++;
+        }
+        root[hash_value]->key=A;
+        root[hash_value]->value=detA;
+    }
+
+}

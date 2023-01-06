@@ -8,24 +8,25 @@ int main()
    BST* storage=new BST();
 
     Matrix M;
-    M.init_matrix(12);
-    take_file_matrix(M,12,"matrices/12/3.txt");
-      /*M.set_element(0, 0, 4);
-  M.set_element(0, 1, 2);
-  M.set_element(0, 2, 3);
-  M.set_element(1, 0, 4);
-  M.set_element(1, 1, 9);
-  M.set_element(1, 2, 6);
-  M.set_element(2, 0, 7);
-  M.set_element(2, 1, 8);
-  M.set_element(2, 2, 9);
-  M.set_element(0, 4, 3);
-   M.set_element(4, 2, 20);*/
-
-   M.print_matrix();
+    M.init_matrix(11);
+    take_file_matrix(M,11,"matrices/11/4.txt");
+    M.print_matrix();
     long det = determinant(M, storage);
 
-    cout << "The determinant of the matrix is: " << det <<endl;
+    cout << "The determinant of the 1.matrix is: " << det <<endl;
+
+    take_file_matrix(M,11,"matrices/11/0.txt");
+    M.print_matrix();
+    det = determinant(M, storage);
+
+    cout << "The determinant of the 1.matrix is: " << det <<endl;
+
+    take_file_matrix(M,11,"matrices/11/2.txt");
+    M.print_matrix();
+    det = determinant(M, storage);
+
+    cout << "The determinant of the 1.matrix is: " << det <<endl;
+
 
 }
 long determinant(Matrix M, BST* storage) {
@@ -46,7 +47,6 @@ long determinant(Matrix M, BST* storage) {
       storage->insert(cofactor_matrix, cofactor);
 
       det += M.get_element(i, 0) * cofactor * ((i % 2 == 0) ? 1 : -1);
-      //cofactor_matrix.print_matrix();
     }
   }
 
