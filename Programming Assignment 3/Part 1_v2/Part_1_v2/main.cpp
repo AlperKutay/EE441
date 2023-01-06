@@ -8,24 +8,31 @@ int main()
    BST* storage=new BST();
 
     Matrix M;
-    M.init_matrix(15);
-    take_file_matrix(M,15,"matrices/15/4.txt");
+    int size=11;
+    M.init_matrix(size);
+    take_file_matrix(M,size,"matrices/11/1.txt");
     M.print_matrix();
     long det = determinant(M, storage);
 
     cout << "The determinant of the 1.matrix is: " << det <<endl;
 
-    take_file_matrix(M,15,"matrices/15/0.txt");
+    take_file_matrix(M,size,"matrices/11/0.txt");
     M.print_matrix();
     det = determinant(M, storage);
 
-    cout << "The determinant of the 1.matrix is: " << det <<endl;
+    cout << "The determinant of the 2.matrix is: " << det <<endl;
 
-    take_file_matrix(M,15,"matrices/15/2.txt");
+    take_file_matrix(M,size,"matrices/11/3.txt");
     M.print_matrix();
     det = determinant(M, storage);
 
-    cout << "The determinant of the 1.matrix is: " << det <<endl;
+    cout << "The determinant of the 3.matrix is: " << det <<endl;
+    cout<<endl;
+    cout<<endl;
+    cout<<endl;
+    int rambyte = storage->counter*sizeof(BST_Node);
+    double ramkbyte = rambyte/1048576;
+    cout<<"Used Ram size is "<<ramkbyte<<" MegaByte."<<endl;
 
 }
 long determinant(Matrix M, BST* storage) {

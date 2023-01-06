@@ -111,11 +111,13 @@ void Matrix::print_matrix(void)const
     int row,column;
     row=N;
     column=N;
+    cout<<"MATRIX: "<<endl;
     for(row=0;row<N;row++)
     {
+        cout<<"  ";
         for(column=0;column<N;column++)
         {
-            cout<<data[row][column] <<ends;
+            cout<<data[row][column]<<" "<<ends;
         }
         cout<<endl;
     }

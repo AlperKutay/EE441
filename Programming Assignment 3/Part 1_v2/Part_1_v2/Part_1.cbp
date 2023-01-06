@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Part_2" />
+		<Option title="Part_1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -32,7 +32,6 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="BST.hpp" />
-		<Unit filename="HT.hpp" />
 		<Unit filename="Matrix.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="take_file.hpp" />

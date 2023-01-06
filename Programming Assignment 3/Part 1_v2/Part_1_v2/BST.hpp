@@ -16,6 +16,7 @@ class BST
         long search(Matrix A);
         void insert(Matrix A,long detA);
         bool key_exists(Matrix A);
+        long counter; // It counts number of BST node that are created.
 };
 bool BST::key_exists(Matrix A)
 {
@@ -96,6 +97,7 @@ void BST::insert(Matrix A,long detA)
 
         root->key=A;
         root->value=detA;
+        counter++;
 
     }
     else
@@ -115,6 +117,7 @@ void BST::insert(Matrix A,long detA)
                     current_node->left= new BST_Node{nullptr,nullptr};
                     current_node->left->value= detA;
                     current_node->left->key= A;
+                    counter++;
                     return;
 
                 }
@@ -130,6 +133,7 @@ void BST::insert(Matrix A,long detA)
                     current_node->right= new BST_Node{nullptr,nullptr};
                     current_node->right->value= detA;
                     current_node->right->key= A;
+                    counter++;
                     return;
                 }
                 else
