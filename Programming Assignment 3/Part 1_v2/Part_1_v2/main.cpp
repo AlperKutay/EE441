@@ -8,25 +8,35 @@ int main()
    BST* storage=new BST();
 
     Matrix M;
-    int size=11;
+    int size=15;
     M.init_matrix(size);
-    take_file_matrix(M,size,"matrices/11/1.txt");
+    take_file_matrix(M,size,"matrices/15/0.txt");
     M.print_matrix();
     long det = determinant(M, storage);
 
     cout << "The determinant of the 1.matrix is: " << det <<endl;
 
-    take_file_matrix(M,size,"matrices/11/0.txt");
+    take_file_matrix(M,size,"matrices/15/3.txt");
     M.print_matrix();
     det = determinant(M, storage);
 
     cout << "The determinant of the 2.matrix is: " << det <<endl;
 
-    take_file_matrix(M,size,"matrices/11/3.txt");
+    take_file_matrix(M,size,"matrices/15/1.txt");
+    M.print_matrix();
+    det = determinant(M, storage);
+/*
+    cout << "The determinant of the 3.matrix is: " << det <<endl;
+    take_file_matrix(M,size,"matrices/15/2.txt");
     M.print_matrix();
     det = determinant(M, storage);
 
-    cout << "The determinant of the 3.matrix is: " << det <<endl;
+    cout << "The determinant of the 4.matrix is: " << det <<endl;
+    take_file_matrix(M,size,"matrices/15/4.txt");
+    M.print_matrix();
+    det = determinant(M, storage);
+
+    cout << "The determinant of the 5.matrix is: " << det <<endl;*/
     cout<<endl;
     cout<<endl;
     cout<<endl;

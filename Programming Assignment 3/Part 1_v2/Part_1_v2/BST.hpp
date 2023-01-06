@@ -100,6 +100,8 @@ void BST::insert(Matrix A,long detA)
         counter++;
 
     }
+    if(key_exists(A))
+        return;
     else
     {
         while(1)
@@ -140,9 +142,5 @@ void BST::insert(Matrix A,long detA)
                     current_node=current_node->right;
             }
         }
-
-
-
-
     }
 }

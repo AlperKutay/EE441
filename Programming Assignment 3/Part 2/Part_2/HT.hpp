@@ -112,7 +112,9 @@ void HashTable::insert(Matrix A,long detA)
     }
     if(is_full())
         return;
-    if(root[hash_value]->key==A)
+    if(key_exists(A))
+        return;
+    if(root[hash_value] != nullptr)
     {
         while(root[hash_value]!=nullptr)
         {
