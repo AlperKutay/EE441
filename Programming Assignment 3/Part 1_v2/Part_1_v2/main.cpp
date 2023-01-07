@@ -11,6 +11,7 @@ int main()
     int size=15;
     M.init_matrix(size);
     take_file_matrix(M,size,"matrices/15/0.txt");
+
     M.print_matrix();
     long det = determinant(M, storage);
 
@@ -25,9 +26,9 @@ int main()
     take_file_matrix(M,size,"matrices/15/1.txt");
     M.print_matrix();
     det = determinant(M, storage);
-/*
+
     cout << "The determinant of the 3.matrix is: " << det <<endl;
-    take_file_matrix(M,size,"matrices/15/2.txt");
+   /* take_file_matrix(M,size,"matrices/15/2.txt");
     M.print_matrix();
     det = determinant(M, storage);
 

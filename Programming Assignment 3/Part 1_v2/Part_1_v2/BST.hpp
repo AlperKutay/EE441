@@ -11,7 +11,7 @@ class BST_Node
 class BST
 {
     public:
-        BST_Node* root= new BST_Node{nullptr,nullptr};
+        BST_Node* root= nullptr;
         int element(int row,int column);
         long search(Matrix A);
         void insert(Matrix A,long detA);
@@ -22,31 +22,24 @@ bool BST::key_exists(Matrix A)
 {
     BST_Node *current_node= root;
     if(root == nullptr)
-    {
         return false;
-    }
-
-    else if(root->key == A)
+    if(root->key == A)
     {
         return true;
     }
 
     while(current_node!=nullptr)
     {
-
         if((A==current_node->key))
         {
-
             return true;
         }
         else if(!(A<current_node->key))
         {
-
             current_node=current_node->right;
         }
-        else if((A<current_node->key))
+        else
         {
-
             current_node=current_node->left;
         }
     }
@@ -55,12 +48,7 @@ bool BST::key_exists(Matrix A)
 long BST::search(Matrix A)
 {
     BST_Node *current_node= root;
-    if(root == nullptr)
-    {
-        return false;
-    }
-
-    else if(root->key == A)
+    if(root->key == A)
     {
         return root->value;
     }
@@ -78,7 +66,7 @@ long BST::search(Matrix A)
 
             current_node=current_node->right;
         }
-        else if((A<current_node->key))
+        else
         {
 
             current_node=current_node->left;
@@ -89,39 +77,26 @@ long BST::search(Matrix A)
 }
 void BST::insert(Matrix A,long detA)
 {
-    BST_Node *current_node= new BST_Node;
-    current_node = root;
-
-    if(root->value == 0)
+    if(root == nullptr)
     {
-
-        root->key=A;
-        root->value=detA;
+        root= new BST_Node{nullptr,nullptr,A,detA};
         counter++;
-
+        return;
     }
+    BST_Node *current_node = root;
     if(key_exists(A))
         return;
     else
     {
         while(1)
         {
-
-            if((A==current_node->key))
-            {
-                return;
-
-            }
-            else if((A<current_node->key))
+            if((A<current_node->key))
             {
                 if(current_node->left==nullptr)
                 {
-                    current_node->left= new BST_Node{nullptr,nullptr};
-                    current_node->left->value= detA;
-                    current_node->left->key= A;
+                    current_node->left= new BST_Node{nullptr,nullptr,A,detA};
                     counter++;
                     return;
-
                 }
                 else
                 {
@@ -132,9 +107,7 @@ void BST::insert(Matrix A,long detA)
             {
                if(current_node->right==nullptr)
                 {
-                    current_node->right= new BST_Node{nullptr,nullptr};
-                    current_node->right->value= detA;
-                    current_node->right->key= A;
+                    current_node->right= new BST_Node{nullptr,nullptr,A,detA};
                     counter++;
                     return;
                 }
