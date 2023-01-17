@@ -108,8 +108,6 @@ void HashTable::insert(Matrix A,long detA)
         count++;
         return;
     }
-    if(is_full())
-        return;
     if(key_exists(A))
         return;
     if(root[hash_value] != nullptr)
@@ -117,8 +115,6 @@ void HashTable::insert(Matrix A,long detA)
         while(root[hash_value]!=nullptr)
         {
             hash_value++;
-            if(hash_value==65535)
-                hash_value=0;
         }
         root[hash_value]=new HT_Item{A,detA};
         count++;
